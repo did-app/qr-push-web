@@ -130,15 +130,15 @@
           const params = new URLSearchParams(window.location.search)
           const address = params.get("qrpu.sh")
           if (address) {
-            QrPush.send(address, {greeting: "Hello"})
+            qrPush.send(address, {greeting: "Hello"})
           } else {
             console.log("Starting")
-            const channel = await QrPush.openChannel({redirect: window.location.toString()})
+            const channel = await qrPush.openChannel({redirect: window.location.toString()})
             channel.displayOverlay()
             channel.displayOverlay()
             setTimeout(async function () {
               channel.close()
-              const channel2 = await QrPush.openChannel({redirect: window.location.toString()})
+              const channel2 = await qrPush.openChannel({redirect: window.location.toString()})
               const message = await channel2.receive()
               console.log(message)
             }, 2000);
@@ -148,12 +148,12 @@
       </script>
       <pre><code class="javascript">
 // start a new channel
-const mailbox = await QrPush.open({redirect: "http://myapp.com/ping"})
+const mailbox = await qrPush.open({redirect: "http://myapp.com/ping"})
 const message = await mailbox.receive()
       </code></pre>
       <h4>sender sends message</h4>
       <pre><code class="javascript">
-const qrPush = QrPush.send()
+const qrPush = qrPush.send()
 const message = await qrPush.receive()
       </code></pre>
       <p>Code snippet</p>
@@ -166,11 +166,11 @@ const address = params.get("qrpu.sh")
 
 if (address) {
 
-  QrPush.send(address, {greeting: "Hello"})
+  qrPush.send(address, {greeting: "Hello"})
 
 } else {
 
-  const mailbox = await QrPush({redirect: window.location})
+  const mailbox = await qrPush({redirect: window.location})
   const message = await mailbox.receive()
   alert("Greeting received: " + message.greeting)
 
