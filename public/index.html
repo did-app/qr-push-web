@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta
-      name="google-site-verification"
-      content="DSfTPM5yNhF-stOZ-bYS14TWtH3FonxrVH34fo8Hf7U"
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>QRpu.sh</title>
     <meta
       name="description"
-      content="Kno is an API for providing secure passwordless authentication for your web application"
+      content="Instantly push messages from mobile to computer"
     />
-    <meta
-      name="keywords"
-      content="Kno, passwordless authentication, privacy, secure, MFA"
-    />
+    <meta name="keywords" content="QR, UX, authentication, secure, MFA" />
 
     <!--  Sharing META Tags -->
-    <meta property="og:title" content="Kno - Passwordless Authentication" />
+    <meta
+      property="og:title"
+      content="QRpu.sh - Instant device communication"
+    />
     <meta
       property="og:description"
-      content="Kno is an API for providing secure passwordless authentication for your web application."
+      content="QRpu.sh is an API for multi-device interatctions using QR codes."
     />
-    <meta
-      property="og:image"
-      content="https://trykno.com/assets/images/iphone-approve_iphone8silver_portrait.png"
-    />
-    <meta property="og:url" content="https://trykno.com/" />
+    <meta property="og:image" content="/images/screenshot.png" />
+    <meta property="og:url" content="https://www.qrpu.sh/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:site_name" content="Try Kno, trykno.com" />
-    <meta
-      name="twitter:image:alt"
-      content="smart phone showing demo of Kno passwordless authentication "
-    />
+    <meta property="og:site_name" content="QRpu.sh" />
+    <meta name="twitter:image:alt" content="Screenshot of the qrpu.sh page" />
 
     <link rel="stylesheet" href="/main.css" />
     <link
@@ -85,7 +75,7 @@
       </div>
 
       <section class="full-width column column-2">
-        <div class="">
+        <div id="qr-box">
           <img src="#" alt="" id="qr-code" />
         </div>
         <div class="center">
@@ -219,7 +209,7 @@ qrPush.send({greeting: "hello"})</code></pre>
       <section id="documentation" class="full-width narrow">
         <h2>Documentation</h2>
         <p>
-          QRpu.sh offers a JavaScript api for sending and receiving messages.
+          QRpu.sh offers a JavaScript API for sending and receiving messages.
           The client code is
           <a href="https://github.com/trykno/qr-push-web">open source</a>.
         </p>
@@ -234,7 +224,7 @@ qrPush.send({greeting: "hello"})</code></pre>
           <h3>Opening a channel</h3>
           <h4>qrPush.open(otions)</h4>
           <p>
-            Used to start a connetion with the push servers.
+            Used to start a connection with the push servers.
           </p>
           <p>
             Returns a promise that will resolve with a channel once it is ready
@@ -243,13 +233,13 @@ qrPush.send({greeting: "hello"})</code></pre>
           <h4>Options</h4>
           <ul>
             <li>
-              <strong>target:</strong> The url of the page to open when the QR
-              code is scanned. This url will have the push url added as the
-              "qrpu.sh" search parameter .
+              <strong>target:</strong> The url of the page which will open when
+              the QR code is scanned. This url will have the push url added as
+              the "qrpu.sh" search parameter .
             </li>
             <li>
               <strong>display (optional):</strong> Should the QR code be
-              displayed when the channel is openend. Default value is
+              displayed when the channel is opened. Default value is
               <strong>true</strong>.
             </li>
           </ul>
@@ -274,7 +264,7 @@ qrPush.send({greeting: "hello"})</code></pre>
           </p>
           <p>
             Normally no <strong>pushURL</strong> needs to be specified as it
-            will be infered from the page url.
+            will be inferred from the page url.
           </p>
         </div>
         <div class="doc-box">
@@ -298,7 +288,7 @@ $img.src = channel.dataPushURL</code></pre>
           <h4>channel.pushURL</h4>
           <p>
             The URL that needs to be scanned, use this to handle encoding the QR
-            in your application. code.
+            in your application code.
           </p>
         </div>
       </section>
@@ -321,8 +311,9 @@ $img.src = channel.dataPushURL</code></pre>
         $img.src = channel.dataPushURL;
         console.log(channel.pushURL);
 
-        var message = await channel.receive();
-        console.log(message);
+        $box = document.getElementById("qr-box");
+        var { greeting } = await channel.receive();
+        $box.innerHTML = "<img src='/images/beers.svg'>";
       })();
     </script>
   </body>

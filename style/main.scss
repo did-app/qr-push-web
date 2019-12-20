@@ -2,17 +2,21 @@
 @import "components/hero.scss";
 @import "components/page.scss";
 
-#qr-code {
-  display: block;
-  width: 240px;
+#qr-box {
   height: 240px;
-  margin: auto;
-  background: rgb(2, 0, 36);
-  background: radial-gradient(
-    circle,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(78, 78, 92, 1) 100%
-  );
+  img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    // width: 240px;
+    margin: auto;
+    // background: rgb(2, 0, 36);
+    // background: radial-gradient(
+    // circle,
+    // rgba(2, 0, 36, 1) 0%,
+    // rgba(78, 78, 92, 1) 100%
+    // );
+  }
 }
 .page {
   line-height: 1.6;
