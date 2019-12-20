@@ -11,6 +11,8 @@ services:
       - 5000:5000
       # livereload
       - 35729:35729
+    environment:
+      - API_HOST=http://localhost:8080
     volumes:
       - .:/opt/app
       - node_modules:/opt/app/node_modules

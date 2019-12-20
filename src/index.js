@@ -1,10 +1,11 @@
 import * as Channel from "./channel.js";
 import * as Overlay from "./overlay.js";
+const apiHost = "ENV_API_HOST";
 
 const defaults = { display: "overlay" };
 export async function openChannel(options) {
   const { redirect, display } = Object.assign({}, defaults, options);
-  const { url, dataURL, messagePromise } = await Channel.open(redirect);
+  const { url, dataURL, messagePromise } = await Channel.open(redirect, apiHost);
 
   var close;
   function displayOverlay() {

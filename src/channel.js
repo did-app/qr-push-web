@@ -1,11 +1,11 @@
 // TODO configure host
 // First event means no round trip if showing straigh away.
 // But no one can scan the code in time
-export function open(redirect) {
+export function open(redirect, apiHost) {
   // Params in here to keep the secret in the EventSource code.
   // Probably no more secure than in a private variable here
   // But we don't want to submit secret in URL when we connect
-  const sourceURL = "https://qrpu.sh/pull?redirect=" + redirect;
+  const sourceURL = apiHost + "/pull?redirect=" + redirect;
   const eventSource = new EventSource(sourceURL);
 
   return new Promise(function(resolve, reject) {
