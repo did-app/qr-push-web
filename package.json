@@ -4,9 +4,17 @@
   "description": "Fast communition between devices",
   "main": "src/index.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "rollup": "^1.27.13"
+  },
   "scripts": {
-    "build": "echo Building",
+    "watch:js": "rollup -w -i src/index.js -o public/qr-push.js -f iife -n qrPush",
+    "watch:css": "node-sass -w style/main.scss public/main.css",
+    "prewatch:css": "npm run build:css",
+    "build:css": "node-sass style/main.scss public/main.css",
+    "build:js": "rollup -i src/index.js -o public/qr-push.js -f iife -n qrPush",
+    "build": "npm run build:js && npm run build:css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
