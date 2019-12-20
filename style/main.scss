@@ -106,3 +106,53 @@ code.hljs {
     margin-left: auto;
   }
 }
+form {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+label {
+  display: block;
+  margin: 1rem 0;
+}
+textarea {
+  max-width: 100%;
+}
+.button {
+  color: inherit;
+  display: inline-block;
+  padding: 9px 16px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+
+  &.wide {
+    width: 100%;
+  }
+}
+.button {
+  color: white;
+  background: radial-gradient(
+    circle farthest-side at right bottom,
+    #008c72 5%,
+    #009c98 98%
+  );
+  &:hover {
+    background: radial-gradient(
+      circle farthest-side at right bottom,
+      desaturate(#008c72, 15%) 5%,
+      desaturate(#009c98, 15%) 98%
+    );
+    box-shadow: 1px 1px 3px 0px #7cd6d3;
+  }
+  &:active,
+  &:focus {
+    background: radial-gradient(
+      circle farthest-side at right bottom,
+      desaturate(#008c72, 15%) 5%,
+      desaturate(#009c98, 15%) 98%
+    );
+    box-shadow: 0px 0px 0px 4px #7cd6d3;
+  }
+}

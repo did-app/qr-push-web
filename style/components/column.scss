@@ -28,4 +28,8 @@
   max-width: 50rem;
   margin-right: auto;
   margin-left: auto;
+
+  &.narrow {
+    max-width: 36rem;
+  }
 }
