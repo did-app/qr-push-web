@@ -73,7 +73,7 @@
   <body class="page">
     <header class="hero">
       <div class="full-width">
-        <h1>Push messages in realtime from mobile to computer</h1>
+        <h1>Instantly push messages from mobile to computer</h1>
       </div>
 
       <section class="full-width column column-2">
@@ -81,10 +81,10 @@
           <img src="#" alt="" id="qr-code" />
         </div>
         <div class="center">
-          <h2>Scan this QR code to try it now</h2>
+          <h2>Scan this QR code to try it now.</h2>
           <p>
             <strong>Did you know?</strong> Most mobile devices now can scan a QR
-            code directly from the camera
+            code directly from the camera.
           </p>
         </div>
       </section>
@@ -98,89 +98,185 @@
     "})
 
 var message =
-    await channel.receive();</code></pre>
+    await channel.receive()</code></pre>
           <pre><code class="javascript">// in send.html
-qrPush.send({greeting: "hello"});</code></pre>
+qrPush.send({greeting: "hello"})</code></pre>
         </div>
         <div class="">
           <section class="center">
             <h2>Get started now</h2>
-            <p>Get setup with just <strong>four</strong> lines of code</p>
+            <p>Get setup with just <strong>three</strong> lines of code.</p>
+            <p>See the full <a href="#">docs</a>.</p>
           </section>
         </div>
       </section>
-      <div class="full-width centered">
+
+      <section class="full-width centered">
+        <h2 class="center">A great user experience</h2>
         <p class="center">
-          install from CDN
+          Dynamic QR codes are a simple and secure way for multi-device
+          usecases. Here are some usecase that are a perfect fit for QRpu.sh:
         </p>
-        <pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.qrpu.sh/qr-push.js&quot;&gt;&lt;/script&gt;</code></pre>
-      </div>
-      <div class="full-width centered">
-        install from npm
-      </div>
-      <section class="full-width centered">
-        <h2>Great for</h2>
-        <ol>
-          <li>Login with app</li>
-          <li>Share social profile</li>
-          <li>dashboards for tracking apps</li>
-        </ol>
-      </section>
-      <section class="full-width centered">
-        <h2>Features</h2>
-        <p>See the rest of your docs</p>
-        <h3>Short URLs</h3>
+        <div class="column column-2">
+          <div class="suggestion huddle">
+            <img src="/images/key.svg" alt="key icon" />
+            <span>Login with app</span>
+          </div>
+          <div class="suggestion huddle">
+            <img src="/images/profile.svg" alt="social profile icon" />
+            <span>Share social profile</span>
+          </div>
+          <div class="suggestion huddle">
+            <img src="/images/kettlebells.svg" alt="kettlebells icon" />
+            <span>dashboards for tracking apps</span>
+          </div>
+          <div class="suggestion huddle">
+            <img src="/images/building.svg" alt="office building icon" />
+            <span>Entry to buildings</span>
+          </div>
+        </div>
         <p>
-          Use our smart URL shortener to reduce the Data in QR codes for easier
-          scanning
+          QR code trends
         </p>
-        <h3>Customisable redirects</h3>
-        <h3>Redirect to apps</h3>
-        <h3>Tracking</h3>
-        <h3>Metadata about the sender</h3>
-        <h2>Reliable built on erlang backend</h2>
       </section>
-      <section class="full-width">
+
+      <section class="full-width center">
         <h2>
           Pricing
         </h2>
-        <h3>Free</h3>
         <p>
-          No account needed
+          QRpu.sh is <strong>free</strong> to use, without an account. Go
+          straight to the <a href="#">docs</a> and get started.
         </p>
-
-        <h3>Paid</h3>
+        <div class="column column-2">
+          <div class="pricing huddle">
+            <h3>Hacker</h3>
+            <ul>
+              <li>No account needed</li>
+              <li>Short urls</li>
+              <li>Small QR codes</li>
+              <li>App URL schemes</li>
+              <li><strong>Free forever</strong></li>
+            </ul>
+          </div>
+          <div class="pricing huddle">
+            <h3>Professional</h3>
+            <ul>
+              <li>Multiple events in channel</li>
+              <li>fast send with WebRTC</li>
+              <li>Sender metadata</li>
+              <li>OS specific redirects</li>
+              <li><strong>Coming soon</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="full-width">
+        <h2>Documentation</h2>
         <p>
-          coming soon
+          QRpu.sh offers a JavaScript api for sending and receiving messages.
+          The client code is [open source]()
         </p>
+        <div class="doc-box">
+          <h3>Install</h3>
+          <p class="">
+            From CDN
+          </p>
+          <pre><code class="html">&lt;script src=&quot;https://www.qrpu.sh/qr-push.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+        <div class="doc-box">
+          <h3>Opening a channel</h3>
+          <h4>qrPush.open(otions)</h4>
+          <p>
+            Used to start a connetion with the push servers.
+          </p>
+          <p>
+            Returns a promise that will resolve with a channel once it is ready
+            to accept a message.
+          </p>
+          <h4>Options</h4>
+          <ul>
+            <li>
+              <strong>target:</strong> The url of the page to open when the QR
+              code is scanned. This url will have the push url added as the
+              "qrpu.sh" search parameter .
+            </li>
+            <li>
+              <strong>display (optional):</strong> Should the QR code be
+              displayed when the channel is openend. Default value is
+              <strong>true</strong>.
+            </li>
+          </ul>
+        </div>
+        <div class="doc-box">
+          <h3>Receiving a message</h3>
+          <h4>channel.receive()</h4>
+          <p>
+            Wait to receive a message over the channel. This returns a promise
+            that will complete when a sender has sent a message over the
+            channel.
+          </p>
+        </div>
+        <div class="doc-box">
+          <h3>Sending a message</h3>
+          <h4>qrPush.send(message, pushURL = undefined)</h4>
+          <p>
+            Used to send a message over the referenced channel.
+          </p>
+          <p>
+            The message will be serialised as JSON to be sent to the receiver.
+          </p>
+          <p>
+            Normally no <strong>pushURL</strong> needs to be specified as it
+            will be infered from the page url.
+          </p>
+        </div>
+        <div class="doc-box">
+          <h3>Displaying an overlay</h3>
+          <h4>channel.displayOverlay()</h4>
+          <p>
+            Displays the QR code over the top of the current page.
+          </p>
+          <h3>Adding QR code into web page</h3>
+          <p>
+            The push URL can be accessed directly to have full control over
+            adding the QR code into your page.
+          </p>
+          <h4>channel.dataPushURL</h4>
+          <p>
+            A data URL that contains an SVG representation of the QR code. It
+            can be displayed at any resolution.
+          </p>
+          <pre><code class="javascript">var $img = document.getElementById('my-qr-img')
+$img.src = channel.dataPushURL</code></pre>
+          <h4>channel.pushURL</h4>
+          <p>
+            The URL that needs to be scanned, use this to handle encoding the QR
+            in your application. code.
+          </p>
+        </div>
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="inverted">
+      <div class="full-width">
+        <a href="#">Contribute on Github</a>
+        <hr />
+        <p>© 2019 Kno Me Limited</p>
+      </div>
+    </footer>
     <script type="text/javascript">
       (async function() {
         var channel = await qrPush.openChannel({
-          target: window.location.toString(),
+          target: "/remote.html",
           display: false
         });
         $img = document.getElementById("qr-code");
-        $img.src = channel.dataURL;
-        //   const params = new URLSearchParams(window.location.search)
-        //   const address = params.get("qrpu.sh")
-        //   if (address) {
-        //     qrPush.send(address, {greeting: "Hello"})
-        //   } else {
-        //     console.log("Starting")
-        //     channel.displayOverlay()
-        //     channel.displayOverlay()
-        //     setTimeout(async function () {
-        //       channel.close()
-        //       const channel2 = await qrPush.openChannel({redirect: window.location.toString()})
-        //       const message = await channel2.receive()
-        //       console.log(message)
-        //     }, 2000);
-        //     console.log("Receiving", channel)
-        //   }
+        $img.src = channel.dataPushURL;
+        console.log(channel.pushURL);
+
+        var message = await channel.receive();
+        console.log(message);
       })();
     </script>
   </body>

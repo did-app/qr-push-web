@@ -14,7 +14,9 @@
     rgba(78, 78, 92, 1) 100%
   );
 }
-
+.page {
+  line-height: 1.6;
+}
 code.hljs {
   border-radius: 4px;
   padding: 1rem;
@@ -30,4 +32,48 @@ code.hljs {
 
 .shift {
   margin-top: -3rem;
+}
+
+.inverted {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: #282c34;
+  color: orange;
+  border-top: 4px solid orange;
+}
+
+.pricing {
+  width: 100%;
+  max-width: 15rem;
+  border: 2px solid orange;
+  border-radius: 4px;
+
+  ul {
+    padding: 0 0.5rem;
+    list-style: none;
+  }
+  li {
+    margin: 0.5rem 0;
+  }
+}
+.suggestion {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  width: 100%;
+  // border: 1px solid grey;
+  text-align: center;
+  /* background: #ffedcc; */
+  padding: 1em;
+  border: 1px solid #ddd;
+  max-width: 28rem;
+
+  img {
+    width: 50px;
+  }
+}
+
+.doc-box {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }

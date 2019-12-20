@@ -2,10 +2,15 @@ import * as Channel from "./channel.js";
 import * as Overlay from "./overlay.js";
 const apiHost = "ENV_API_HOST";
 
-const defaults = { display: "overlay" };
+const defaults = { display: true };
 export async function openChannel(options) {
-  const { redirect, display } = Object.assign({}, defaults, options);
-  const { url, dataURL, messagePromise } = await Channel.open(redirect, apiHost);
+  const { target, display } = Object.assign({}, defaults, options);
+  const redirect = new URL(target, window.location.origin);
+
+  const { url, dataURL, messagePromise } = await Channel.open(
+    redirect,
+    apiHost
+  );
 
   var close;
   function displayOverlay() {
@@ -18,8 +23,8 @@ export async function openChannel(options) {
     displayOverlay();
   }
   return {
-    url,
-    dataURL,
+    pushURL: url,
+    dataPushURL: dataURL,
     displayOverlay,
     close: function() {
       close();
@@ -36,8 +41,12 @@ export async function openChannel(options) {
   };
 }
 
-export async function send(address, message) {
-  const response = await fetch(address, {
+export async function send(message, pushURL) {
+  if (!pushURL) {
+    const params = new URLSearchParams(window.location.search);
+    pushURL = params.get("qrpu.sh");
+  }
+  const response = await fetch(pushURL, {
     method: "POST",
     body: JSON.stringify(message)
   });

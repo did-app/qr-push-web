@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta
+      name="google-site-verification"
+      content="DSfTPM5yNhF-stOZ-bYS14TWtH3FonxrVH34fo8Hf7U"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>QRpu.sh</title>
+    <meta
+      name="description"
+      content="Kno is an API for providing secure passwordless authentication for your web application"
+    />
+    <meta
+      name="keywords"
+      content="Kno, passwordless authentication, privacy, secure, MFA"
+    />
+
+    <!--  Sharing META Tags -->
+    <meta property="og:title" content="Kno - Passwordless Authentication" />
+    <meta
+      property="og:description"
+      content="Kno is an API for providing secure passwordless authentication for your web application."
+    />
+    <meta
+      property="og:image"
+      content="https://trykno.com/assets/images/iphone-approve_iphone8silver_portrait.png"
+    />
+    <meta property="og:url" content="https://trykno.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content="Try Kno, trykno.com" />
+    <meta
+      name="twitter:image:alt"
+      content="smart phone showing demo of Kno passwordless authentication "
+    />
+
+    <link rel="stylesheet" href="/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/atom-one-dark.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script type="text/javascript" src="/qr-push.js"></script>
+
+    <script>
+      (function(w, d, s, o, f, js, fjs) {
+        w[o] =
+          w[o] ||
+          function() {
+            (w[o].q = w[o].q || []).push(arguments);
+          };
+        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+        js.id = o;
+        js.src = f;
+        js.async = 1;
+        fjs.parentNode.insertBefore(js, fjs);
+      })(
+        window,
+        document,
+        "script",
+        "plausible",
+        "https://plausible.io/js/p.js"
+      );
+
+      plausible("page");
+    </script>
+  </head>
+  <body class="page">
+    <header class="hero">
+      <div class="full-width">
+        <h1>Push messages from mobile to computer</h1>
+      </div>
+
+      <section class="full-width column column-2">
+        <div class="">
+          <img src="#" alt="" id="qr-code" />
+        </div>
+        <!-- <div class="center">
+          <h2>Scan this QR code to try it now</h2>
+          <p>
+            <strong>Did you know?</strong> Most mobile devices now can scan a QR
+            code directly from the camera
+          </p>
+        </div> -->
+      </section>
+    </header>
+    <main>
+      Done
+    </main>
+
+    <footer class="inverted">
+      <div class="full-width">
+        <hr />
+        <p>© 2019 Kno Me Limited</p>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      (async function() {
+        await qrPush.send({ greeting: "hello" });
+      })();
+    </script>
+  </body>
+</html>
