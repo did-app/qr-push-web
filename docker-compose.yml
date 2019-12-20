@@ -1,0 +1,16 @@
+version: "2"
+
+volumes:
+  node_modules:
+services:
+  web:
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    ports:
+      - 5000:5000
+      # livereload
+      - 35729:35729
+    volumes:
+      - .:/opt/app
+      - node_modules:/opt/app/node_modules

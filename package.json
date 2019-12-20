@@ -1,0 +1,26 @@
+{
+  "name": "qr-push",
+  "version": "0.1.0",
+  "description": "Fast communition between devices",
+  "main": "src/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trykno/qr-push-web.git"
+  },
+  "keywords": [
+    "qr",
+    "auth",
+    "realtime"
+  ],
+  "author": "trykno.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trykno/qr-push-web/issues"
+  },
+  "homepage": "https://github.com/trykno/qr-push-web#readme"
+}
