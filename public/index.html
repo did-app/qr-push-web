@@ -72,6 +72,14 @@
   </head>
   <body class="page">
     <header class="hero">
+      <nav class="full-width nav">
+        <span><strong>QRpu.sh</strong> <small>beta</small></span>
+        <span class="right">
+          <a href="#why">Why push?</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#documentation">Docs</a>
+        </span>
+      </nav>
       <div class="full-width">
         <h1>Instantly push messages from mobile to computer</h1>
       </div>
@@ -83,7 +91,7 @@
         <div class="center">
           <h2>Scan this QR code to try it now.</h2>
           <p>
-            <strong>Did you know?</strong> Most mobile devices now can scan a QR
+            <strong>Did you know?</strong> Most mobile devices can now scan a QR
             code directly from the camera.
           </p>
         </div>
@@ -99,8 +107,14 @@
 
 var message =
     await channel.receive()</code></pre>
+          <div class="caption">
+            Receive a message
+          </div>
           <pre><code class="javascript">// in send.html
 qrPush.send({greeting: "hello"})</code></pre>
+          <div class="caption">
+            Send a message
+          </div>
         </div>
         <div class="">
           <section class="center">
@@ -111,7 +125,7 @@ qrPush.send({greeting: "hello"})</code></pre>
         </div>
       </section>
 
-      <section class="full-width centered">
+      <section id="why" class="full-width centered">
         <h2 class="center">A great user experience</h2>
         <p class="center">
           Dynamic QR codes are a simple and secure way for multi-device
@@ -140,7 +154,7 @@ qrPush.send({greeting: "hello"})</code></pre>
         </p>
       </section>
 
-      <section class="full-width center">
+      <section id="pricing" class="full-width center">
         <h2>
           Pricing
         </h2>
@@ -171,7 +185,7 @@ qrPush.send({greeting: "hello"})</code></pre>
           </div>
         </div>
       </section>
-      <section class="full-width">
+      <section id="documentation" class="full-width">
         <h2>Documentation</h2>
         <p>
           QRpu.sh offers a JavaScript api for sending and receiving messages.

@@ -25,6 +25,14 @@ code.hljs {
 .column-2 code.hljs {
   max-width: 24rem;
 }
+.caption {
+  max-width: 24rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  margin-top: -0.8rem;
+  font-weight: bold;
+}
 
 .center {
   text-align: center;
@@ -76,4 +84,25 @@ code.hljs {
 .doc-box {
   margin-top: 4rem;
   margin-bottom: 4rem;
+}
+
+.nav {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 120%;
+  a {
+    padding: 6px;
+    text-decoration: none;
+    // background: #0001;
+    color: inherit;
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: inset 0 -8px 0 -5px orange;
+    }
+  }
+  .right {
+    margin-left: auto;
+  }
 }
