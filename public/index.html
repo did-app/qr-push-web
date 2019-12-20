@@ -65,9 +65,9 @@
       <nav class="full-width nav">
         <span><strong>QRpu.sh</strong> <small>beta</small></span>
         <span class="right">
-          <a href="#why">Why push?</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#documentation">Docs</a>
+          <a href="/#why">Why push?</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#documentation">Docs</a>
         </span>
       </nav>
       <div class="full-width">
@@ -79,7 +79,7 @@
           <img src="#" alt="" id="qr-code" />
         </div>
         <div class="center">
-          <h2>Scan this QR code to try it now.</h2>
+          <h2 id="message-space">Scan this QR code to try it now.</h2>
           <p>
             <strong>Did you know?</strong> Most mobile devices can now scan a QR
             code directly from the camera.
@@ -110,7 +110,7 @@ qrPush.send({greeting: "hello"})</code></pre>
           <section class="center">
             <h2>Get started now</h2>
             <p>Get setup with just <strong>three</strong> lines of code.</p>
-            <p>See the full <a href="#documentation">docs</a>.</p>
+            <p>See the full <a href="/#documentation">docs</a>.</p>
           </section>
         </div>
       </section>
@@ -147,7 +147,7 @@ qrPush.send({greeting: "hello"})</code></pre>
         </h2>
         <p>
           QRpu.sh is <strong>free</strong> to use, without an account. Go
-          straight to the <a href="#documentation">docs</a> and get started.
+          straight to the <a href="/#documentation">docs</a> and get started.
         </p>
         <div class="column column-2">
           <div class="pricing huddle">
@@ -173,7 +173,7 @@ qrPush.send({greeting: "hello"})</code></pre>
         </div>
       </section>
       <p class="full-width center narrow">
-        QRpu.sh is currently in beta phase. <a href="#">Contact us</a> to find
+        QRpu.sh is currently in beta phase. <a href="/#">Contact us</a> to find
         out more about release plans.
       </p>
       <section class="full-width center narrow">
@@ -294,9 +294,9 @@ $img.src = channel.dataPushURL</code></pre>
       </section>
     </main>
 
-    <footer class="inverted">
+    <footer class="footer inverted">
       <div class="full-width">
-        <a href="#">Contribute on Github</a>
+        <a href="/#">Contribute on Github</a>
         <hr />
         <p>© 2019 Kno Me Limited</p>
       </div>
@@ -314,6 +314,8 @@ $img.src = channel.dataPushURL</code></pre>
         $box = document.getElementById("qr-box");
         var { greeting } = await channel.receive();
         $box.innerHTML = "<img src='/images/beers.svg'>";
+        $output = document.getElementById("message-space");
+        $output.innerHTML = "Received the greeting: " + greeting;
       })();
     </script>
   </body>

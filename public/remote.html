@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta
-      name="google-site-verification"
-      content="DSfTPM5yNhF-stOZ-bYS14TWtH3FonxrVH34fo8Hf7U"
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>QRpu.sh</title>
     <meta
       name="description"
-      content="Kno is an API for providing secure passwordless authentication for your web application"
+      content="Instantly push messages from mobile to computer"
     />
-    <meta
-      name="keywords"
-      content="Kno, passwordless authentication, privacy, secure, MFA"
-    />
+    <meta name="keywords" content="QR, UX, authentication, secure, MFA" />
 
     <!--  Sharing META Tags -->
-    <meta property="og:title" content="Kno - Passwordless Authentication" />
+    <meta
+      property="og:title"
+      content="QRpu.sh - Instant device communication"
+    />
     <meta
       property="og:description"
-      content="Kno is an API for providing secure passwordless authentication for your web application."
+      content="QRpu.sh is an API for multi-device interatctions using QR codes."
     />
-    <meta
-      property="og:image"
-      content="https://trykno.com/assets/images/iphone-approve_iphone8silver_portrait.png"
-    />
-    <meta property="og:url" content="https://trykno.com/" />
+    <meta property="og:image" content="/images/screenshot.png" />
+    <meta property="og:url" content="https://www.qrpu.sh/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:site_name" content="Try Kno, trykno.com" />
-    <meta
-      name="twitter:image:alt"
-      content="smart phone showing demo of Kno passwordless authentication "
-    />
+    <meta property="og:site_name" content="QRpu.sh" />
+    <meta name="twitter:image:alt" content="Screenshot of the qrpu.sh page" />
 
     <link rel="stylesheet" href="/main.css" />
     <link
@@ -72,36 +62,50 @@
   </head>
   <body class="page">
     <header class="hero">
+      <nav class="full-width nav">
+        <span><strong>QRpu.sh</strong> <small>beta</small></span>
+        <span class="right">
+          <a href="/#why">Why push?</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#documentation">Docs</a>
+        </span>
+      </nav>
       <div class="full-width">
-        <h1>Push messages from mobile to computer</h1>
+        <h1>Instantly push messages from mobile to computer</h1>
       </div>
 
       <section class="full-width column column-2">
-        <div class="">
-          <img src="#" alt="" id="qr-code" />
+        <div id="qr-box">
+          <img src="/images/beers.svg" alt="" id="qr-code" />
         </div>
-        <!-- <div class="center">
-          <h2>Scan this QR code to try it now</h2>
-          <p>
-            <strong>Did you know?</strong> Most mobile devices now can scan a QR
-            code directly from the camera
-          </p>
-        </div> -->
+        <div class="center">
+          <h2 id="message-space"></h2>
+          <p></p>
+        </div>
       </section>
     </header>
-    <main>
-      Done
-    </main>
+    <main></main>
 
-    <footer class="inverted">
+    <footer class="footer inverted">
       <div class="full-width">
+        <a href="/#">Contribute on Github</a>
         <hr />
         <p>© 2019 Kno Me Limited</p>
       </div>
     </footer>
     <script type="text/javascript">
       (async function() {
-        await qrPush.send({ greeting: "hello" });
+        var greetings = [
+          "Good day, good folk.",
+          "Why, how lovely to see you.",
+          "Fancy meeting you here.",
+          "It's nice to e-meet you",
+          "Howdy"
+        ];
+        var greeting = greetings[Math.floor(Math.random() * greetings.length)];
+        await qrPush.send({ greeting });
+        $output = document.getElementById("message-space");
+        $output.innerHTML = "Sent the greeting: " + greeting;
       })();
     </script>
   </body>
