@@ -1,0 +1,33 @@
+@import "components/column.scss";
+@import "components/hero.scss";
+@import "components/page.scss";
+
+#qr-code {
+  display: block;
+  width: 240px;
+  height: 240px;
+  margin: auto;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(78, 78, 92, 1) 100%
+  );
+}
+
+code.hljs {
+  border-radius: 4px;
+  padding: 1rem;
+  margin: auto;
+}
+.column-2 code.hljs {
+  max-width: 24rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.shift {
+  margin-top: -3rem;
+}

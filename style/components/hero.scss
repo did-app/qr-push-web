@@ -1,0 +1,15 @@
+.hero {
+  // background: yellow;
+  background: linear-gradient(45deg, orange, transparent);
+  padding-top: 1px;
+  padding-bottom: 4rem;
+  border-bottom: 4px solid orange;
+
+  h1 {
+    text-align: center;
+    font-size: 350%;
+    font-weight: normal;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

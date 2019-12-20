@@ -36,6 +36,7 @@
       content="smart phone showing demo of Kno passwordless authentication "
     />
 
+    <link rel="stylesheet" href="/main.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/atom-one-dark.min.css"
@@ -45,164 +46,142 @@
       hljs.initHighlightingOnLoad();
     </script>
     <script type="text/javascript" src="/qr-push.js"></script>
-    <style media="screen">
-      html {
-        box-sizing: border-box;
-      }
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-      body {
-        margin: 0;
-      }
-
-      html {
-        font-size: 16px;
-        font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
-          Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-          Helvetica Neue, sans-serif;
-        color: #43464b;
-      }
-      @media screen and (min-width: 600px) {
-        html {
-          font-size: 20px;
-        }
-      }
-
-      .page > * {
-        padding-left: 1rem;
-        padding-right: 1rem;
-
-        /* todomove to class */
-        max-width: 60rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
 
     <script>
-      (function (w,d,s,o,f,js,fjs) {
-      w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-      js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-      js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-      }(window, document, 'script', 'plausible', 'https://plausible.io/js/p.js'));
+      (function(w, d, s, o, f, js, fjs) {
+        w[o] =
+          w[o] ||
+          function() {
+            (w[o].q = w[o].q || []).push(arguments);
+          };
+        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+        js.id = o;
+        js.src = f;
+        js.async = 1;
+        fjs.parentNode.insertBefore(js, fjs);
+      })(
+        window,
+        document,
+        "script",
+        "plausible",
+        "https://plausible.io/js/p.js"
+      );
 
-      plausible('page')
+      plausible("page");
     </script>
   </head>
   <body class="page">
-    <!-- <script type="text/javascript" src="/qrcode.min.js"> </script> -->
-    <img id="qrcode"></img>
-      <!-- <script type="text/javascript">
-      new QRCode(document.getElementById("qrcode"), {text: "qrpu.sh/AAAAAEQ32FYCT7FZ", correctLevel : QRCode.CorrectLevel.L});
-      </script> -->
-    <header>
-      <h1>QRpu.sh</h1>
-      <p>
-        Quickly send messages now
-      </p>
-      <p>
-        The fastest way to send messages between devices, no account necessary
-      </p>
-      <p>
-        <button type="button" name="button">Get started, no account</button>
-      </p>
-      <p>
-        Join the mailing list. Probably later
-      </p>
-      <p>
-        <input type="email" name="" value="" />
-      </p>
+    <header class="hero">
+      <div class="full-width">
+        <h1>Push messages in realtime from mobile to computer</h1>
+      </div>
 
-      <ol>
-        <li>Login with app</li>
-        <li>Share social profile</li>
-        <li>Multiplayer games controller</li>
-      </ol>
+      <section class="full-width column column-2">
+        <div class="">
+          <img src="#" alt="" id="qr-code" />
+        </div>
+        <div class="center">
+          <h2>Scan this QR code to try it now</h2>
+          <p>
+            <strong>Did you know?</strong> Most mobile devices now can scan a QR
+            code directly from the camera
+          </p>
+        </div>
+      </section>
     </header>
     <main>
-      <!-- TODO goal on new page  -->
-      <!-- TODO configure urls on both applications -->
-      <h2>Get started now</h2>
-      <h4>Recever, open mailbox</h4>
-      <script type="text/javascript">
-        (async function () {
-          const params = new URLSearchParams(window.location.search)
-          const address = params.get("qrpu.sh")
-          if (address) {
-            qrPush.send(address, {greeting: "Hello"})
-          } else {
-            console.log("Starting")
-            const channel = await qrPush.openChannel({redirect: window.location.toString()})
-            channel.displayOverlay()
-            channel.displayOverlay()
-            setTimeout(async function () {
-              channel.close()
-              const channel2 = await qrPush.openChannel({redirect: window.location.toString()})
-              const message = await channel2.receive()
-              console.log(message)
-            }, 2000);
-            console.log("Receiving", channel)
-          }
-        }());
-      </script>
-      <pre><code class="javascript">
-// start a new channel
-const mailbox = await qrPush.open({redirect: "http://myapp.com/ping"})
-const message = await mailbox.receive()
-      </code></pre>
-      <h4>sender sends message</h4>
-      <pre><code class="javascript">
-const qrPush = qrPush.send()
-const message = await qrPush.receive()
-      </code></pre>
-      <p>Code snippet</p>
-      <p>
-        Full example pinger.
-      </p>
-      <pre><code class="javascript">// ping.html
-const params = new URLSearchParams(window.location.search)
-const address = params.get("qrpu.sh")
+      <section class="full-width column column-2">
+        <div class="shift">
+          <pre><code class="javascript">var channel =
+    await qrPush.open({
+      target: "/send.html
+    "})
 
-if (address) {
+var message =
+    await channel.receive();</code></pre>
+          <pre><code class="javascript">// in send.html
+qrPush.send({greeting: "hello"});</code></pre>
+        </div>
+        <div class="">
+          <section class="center">
+            <h2>Get started now</h2>
+            <p>Get setup with just <strong>four</strong> lines of code</p>
+          </section>
+        </div>
+      </section>
+      <div class="full-width centered">
+        <p class="center">
+          install from CDN
+        </p>
+        <pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.qrpu.sh/qr-push.js&quot;&gt;&lt;/script&gt;</code></pre>
+      </div>
+      <div class="full-width centered">
+        install from npm
+      </div>
+      <section class="full-width centered">
+        <h2>Great for</h2>
+        <ol>
+          <li>Login with app</li>
+          <li>Share social profile</li>
+          <li>dashboards for tracking apps</li>
+        </ol>
+      </section>
+      <section class="full-width centered">
+        <h2>Features</h2>
+        <p>See the rest of your docs</p>
+        <h3>Short URLs</h3>
+        <p>
+          Use our smart URL shortener to reduce the Data in QR codes for easier
+          scanning
+        </p>
+        <h3>Customisable redirects</h3>
+        <h3>Redirect to apps</h3>
+        <h3>Tracking</h3>
+        <h3>Metadata about the sender</h3>
+        <h2>Reliable built on erlang backend</h2>
+      </section>
+      <section class="full-width">
+        <h2>
+          Pricing
+        </h2>
+        <h3>Free</h3>
+        <p>
+          No account needed
+        </p>
 
-  qrPush.send(address, {greeting: "Hello"})
-
-} else {
-
-  const mailbox = await qrPush({redirect: window.location})
-  const message = await mailbox.receive()
-  alert("Greeting received: " + message.greeting)
-
-}
-      </code></pre>
-      <p>See the rest of your docs</p>
-      <h2>Features</h2>
-      <h3>Short URLs</h3>
-      <p>
-        Use our smart URL shortener to reduce the Data in QR codes for easier
-        scanning
-      </p>
-      <h3>Customisable redirects</h3>
-      <h3>Redirect to apps</h3>
-      <h3>Tracking</h3>
-      <h3>Metadata about the sender</h3>"https://qrpu.sh" +
-      <h2>
-        Pricing
-      </h2>
-      <h3>Free</h3>
-      <p>
-        No account needed
-      </p>
-
-      <h3>Paid</h3>
-      <p>
-        coming soon
-      </p>
+        <h3>Paid</h3>
+        <p>
+          coming soon
+        </p>
+      </section>
     </main>
-    <footer></footer>
 
+    <footer></footer>
+    <script type="text/javascript">
+      (async function() {
+        var channel = await qrPush.openChannel({
+          target: window.location.toString(),
+          display: false
+        });
+        $img = document.getElementById("qr-code");
+        $img.src = channel.dataURL;
+        //   const params = new URLSearchParams(window.location.search)
+        //   const address = params.get("qrpu.sh")
+        //   if (address) {
+        //     qrPush.send(address, {greeting: "Hello"})
+        //   } else {
+        //     console.log("Starting")
+        //     channel.displayOverlay()
+        //     channel.displayOverlay()
+        //     setTimeout(async function () {
+        //       channel.close()
+        //       const channel2 = await qrPush.openChannel({redirect: window.location.toString()})
+        //       const message = await channel2.receive()
+        //       console.log(message)
+        //     }, 2000);
+        //     console.log("Receiving", channel)
+        //   }
+      })();
+    </script>
   </body>
 </html>

@@ -1,0 +1,16 @@
+.column {
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+
+  &.column-2 {
+    grid-template-columns: repeat(2 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.full-width {
+  max-width: 50rem;
+  margin-right: auto;
+  margin-left: auto;
+}
