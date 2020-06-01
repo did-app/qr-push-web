@@ -1,4 +1,5 @@
-import * as Channel from "./channel.js";
+// import * as Channel from "./channel.js";
+import * as Channel from "./poll.js";
 import * as Overlay from "./overlay.js";
 const apiHost = "ENV_API_HOST";
 
@@ -41,15 +42,18 @@ export async function openChannel(options) {
   };
 }
 
-export async function send(message, pushURL) {
-  if (!pushURL) {
+export async function send(message, pushToken) {
+  if (!pushToken) {
     const params = new URLSearchParams(window.location.search);
-    pushURL = params.get("qrpu.sh");
+    pushToken = params.get("qrpu.sh");
   }
-  const response = await fetch(pushURL, {
+  console.log(pushToken);
+  const response = await fetch(apiHost + "/push", {
     method: "POST",
+    headers: {
+      authorization: "Bearer " + pushToken
+    },
     body: JSON.stringify(message)
   });
   console.log(response);
-  console.log();
 }
